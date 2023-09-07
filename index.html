@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResuCraft</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, h2, p, ul, li {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color, #f0f0f0);
+            color: var(--text-color, #333);
+            transition: background-color 0.5s, color 0.5s;
+            position: relative;
+        }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: var(--navbar-bg-color, #333);
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            transition: color 0.3s;
+        }
+
+        .navbar a:hover {
+            color: var(--navbar-link-hover-color, #ff5733);
+        }
+
+        .logo img {
+            width: 100px;
+            transition: transform 0.3s;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 5px;
+            margin-right: 20px;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar input[type="text"] {
+            border: none;
+            outline: none;
+            padding: 5px;
+            margin-right: 5px;
+        }
+
+        .search-icon {
+            color: #333;
+            transition: color 0.3s;
+        }
+
+        .login-button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-button:hover {
+            background-color: #45a049;
+        }
+
+        /* Hero section styles */
+        .hero {
+            background-color: var(--hero-bg-color, #fff);
+            text-align: center;
+            padding: 100px 0;
+            position: relative;
+            transition: background-color 0.3s;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 30px;
+            color: #777;
+        }
+
+        .hero .signup-button {
+            background-color: var(--signup-button-bg-color, #ff5733);
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .hero .signup-button:hover {
+            background-color: #ff6f4a;
+        }
+
+        .hero-slideshow {
+            max-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .hero-slideshow img {
+            width: 100%;
+            height: auto;
+            position: absolute;
+            animation: fade 5s ease-in-out infinite;
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            width: 100%;
+        }
+
+        /* Dark mode styles */
+        .dark-mode-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border-radius: 5px;
+        }
+
+        .dark-mode-button:hover {
+            background-color: #555;
+        }
+
+        /* Interactive section styles */
+        .interactive-section {
+            background-color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .interactive-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Animated card styles */
+        .card-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: var(--card-bg-color, #fff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px;
+            width: calc(33.33% - 40px);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            vertical-align: top;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .card .know-more-button {
+            background-color: var(--know-more-button-bg-color, #ff5733);
+            color: #fff;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card .know-more-button:hover {
+            background-color: #ff6f4a;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .card:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Contact form styles */
+        .contact-form {
+            background-color: var(--card-bg-color, #fff);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin: 20px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            display: none;
+            position: relative;
+        }
+
+        .contact-form.active {
+            display: block;
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .contact-form p {
+            font-size: 1rem;
+            color: #777;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-form label {
+            margin: 10px 0;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .contact-form input[type="text"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .contact-form button {
+            background-color: var(--know-more-button-bg-color, #ff5733);
+            color: #fff;
+            font-size: 1rem;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .contact-form button:hover {
+            background-color: #ff6f4a;
+        }
+
+        /* Keyframe animation for the card and form */
+        @keyframes slide {
+            0%, 100% {
+                transform: translateX(0);
+            }
+            25% {
+                transform: translateX(-100%);
+            }
+            75% {
+                transform: translateX(100%);
+            }
+        }
+
+        /* Media queries for responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+
+            .navbar a {
+                margin: 10px 0;
+            }
+
+            .search-bar {
+                margin-right: 0;
+                margin-top: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero .signup-button {
+                font-size: 1rem;
+            }
+
+            .card {
+                width: calc(50% - 40px);
+            }
+
+            .contact-form {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="logo.png" alt="ResuCraft Logo">
+        </div>
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#">About Us</a>
+        </div>
+        <button class="login-button">Login</button>
+    </div>
+
+    <div class="hero">
+        <div class="hero-slideshow">
+            <img src="https://cdn.pixabay.com/photo/2015/04/19/08/32/rose-729509_640.jpg" alt="Slide 1">
+            <img src="https://media.istockphoto.com/id/904943924/photo/red-rose-leaves-and-petal.jpg?s=612x612&w=0&k=20&c=AgSeea4h-YHd6_dxeL2sdT72h851LwUu2vbrSMgk-ac=" alt="Slide 2">
+            <img src="https://cdn.create.vista.com/api/media/medium/190771624/stock-photo-close-view-beautiful-red-rose-isolated-black?token=" alt="Slide 3">
+        </div>
+        <div class="hero-content">
+            <h1>ResuCraft</h1>
+            <p>Your One-Stop Resume Builder</p>
+            <button class="signup-button">Signup Today</button>
+        </div>
+    </div>
+
+    <div class="interactive-section">
+        <h2>Interactive Section 1</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/picture-planet-with-trees-it_579873-1170.jpg" alt="Card Image 1">
+                <h3>Card 1</h3>
+                <p>Explore this card to learn more.</p>
+                <button class="know-more-button">Know More</button>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/winter-snow-road-going-through-forest_534373-6024.jpg" alt="Card Image 2">
+                <h3>Card 2</h3>
+                <p>More content goes here.</p>
+                <button class="know-more-button">Know More</button>
+            </div>
+            <div class="card">
+                <img src="https://img.freepik.com/premium-photo/painting-floating-island-with-waterfall-castle-it_667286-3172.jpg?w=2000" alt="Card Image 3">
+                <h3>Card 3</h3>
+                <p>Explore this card further.</p>
+                <button class="know-more-button">Know More</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="interactive-section">
+        <h2>Interactive Section 2</h2>
+        <div class="contact-form">
+            <h3>Contact Us</h3>
+            <p>Have any questions? Feel free to reach out!</p>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+
+                <button class="know-more-button">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <button class="dark-mode-button" onclick="toggleDarkMode()">Dark Mode</button>
+
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const currentBackgroundColor = getComputedStyle(body).backgroundColor;
+
+            if (currentBackgroundColor === "rgb(240, 240, 240)") {
+                // Switch to dark mode
+                body.style.setProperty("--background-color", "#333");
+                body.style.setProperty("--text-color", "#fff");
+                body.style.setProperty("--navbar-bg-color", "#333");
+                body.style.setProperty("--navbar-link-hover-color", "#ff5733");
+                body.style.setProperty("--hero-bg-color", "#333");
+                body.style.setProperty("--signup-button-bg-color", "#ff5733");
+                body.style.setProperty("--know-more-button-bg-color", "#ff5733");
+                body.style.setProperty("--card-bg-color", "#444");
+            } else {
+                // Switch to light mode
+                body.style.setProperty("--background-color", "#f0f0f0");
+                body.style.setProperty("--text-color", "#333");
+                body.style.setProperty("--navbar-bg-color", "#333");
+                body.style.setProperty("--navbar-link-hover-color", "#ff5733");
+                body.style.setProperty("--hero-bg-color", "#fff");
+                body.style.setProperty("--signup-button-bg-color", "#ff5733");
+                body.style.setProperty("--know-more-button-bg-color", "#ff5733");
+                body.style.setProperty("--card-bg-color", "#fff");
+            }
+        }
+    </script>
+</body>
+</html>
