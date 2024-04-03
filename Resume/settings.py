@@ -129,7 +129,4 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# settings.py
 
-PDFCROWD_USERNAME = 'Eswarkarthikk'
-PDFCROWD_API_KEY = '11fab2a73ab9984db2a77b9e8f87f87b'

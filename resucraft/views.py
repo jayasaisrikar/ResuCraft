@@ -60,10 +60,10 @@ def template4(request):
 def template5(request):
     try:
         user_data = request.user.userdata
-        return render(request, 'resume4.html', {'user_data': user_data})
+        return render(request, 'resume5.html', {'user_data': user_data})
     except UserData.DoesNotExist:
         no_data_message = "You've not entered any data."
-        return render(request, 'resume4.html', {'no_data_message': no_data_message})
+        return render(request, 'resume5.html', {'no_data_message': no_data_message})
 @login_required(login_url='/login/')
 def template6(request):
     try:
@@ -76,18 +76,18 @@ def template6(request):
 def template7(request):
     try:
         user_data = request.user.userdata
-        return render(request, 'resume4.html', {'user_data': user_data})
+        return render(request, 'resume8.html', {'user_data': user_data})
     except UserData.DoesNotExist:
         no_data_message = "You've not entered any data."
-        return render(request, 'resume4.html', {'no_data_message': no_data_message})
+        return render(request, 'resume8.html', {'no_data_message': no_data_message})
 @login_required(login_url='/login/')
 def template8(request):
     try:
         user_data = request.user.userdata
-        return render(request, 'resume4.html', {'user_data': user_data})
+        return render(request, 'resume8.html', {'user_data': user_data})
     except UserData.DoesNotExist:
         no_data_message = "You've not entered any data."
-        return render(request, 'resume4.html', {'no_data_message': no_data_message})
+        return render(request, 'resume8.html', {'no_data_message': no_data_message})
 @login_required(login_url='/login/')
 def template9(request):
     try:
@@ -96,16 +96,8 @@ def template9(request):
     except UserData.DoesNotExist:
         no_data_message = "You've not entered any data."
         return render(request, 'resume4.html', {'no_data_message': no_data_message})
-        
-@login_required(login_url='/login/')
-def template10(request):
-    try:
-        user_data = request.user.userdata
-        return render(request, 'resume4.html', {'user_data': user_data})
-    except UserData.DoesNotExist:
-        no_data_message = "You've not entered any data."
-        return render(request, 'resume4.html', {'no_data_message': no_data_message})
-        
+
+
 def logout_view(request):
     logout(request)
     return redirect('home')  # Redirect to the home page or any other desired URL after logout
@@ -233,10 +225,10 @@ def userdata(request):
             new_data.links.add(link)
 
         # Redirect to a success page or render a success message
-        return render(request, 'request.html')
+        return render(request, 'result.html')
 
     # Render the user data form
-    return render(request, 'request.html')
+    return render(request, 'result.html')
 
 def templates(request):
     return render(request,'templates.html')

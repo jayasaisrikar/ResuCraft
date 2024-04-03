@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Data Form</title>
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+  
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -134,11 +136,11 @@
 <a href="{% url 'register' %}"><button type="button" class="btn btn-success btlogin">sign up</button></a>
 <a href="{% url 'login' %}"><button type="button" class="btn btn-success btlogin">Login</button></a>
 {% endif %}
-        </div>
+       </div>
       </nav>
     <div class="profile">
     <img src="{{ user_data.profile_picture.url }}" alt="Profile Picture" class="profile-picture">
-    <h1>Edit your details</h1>
+    <h1 style="color: #003772;">Edit your details</h1>
 </div>
 
 <center>
@@ -218,7 +220,7 @@
             <td>{% for job in user_data.work_experiences.all %}
                 <div id="jobs-container">
                     <input type="text" name="job_names[]" value="{{ job.name }}">
-                    <input type="text" name="jobp_place[]" value="{{job.jobplace}}">
+                    <input type="text" name="job_place[]" value="{{job.jobplace}}">
                     <input type="text" name="job_durations[]" value="{{ job.duration }}">
                     <textarea name="job_descriptions[]" placeholder="Description 1" rows="3" cols="30">{{ job.description }}</textarea>
                 </div>  {% endfor %}

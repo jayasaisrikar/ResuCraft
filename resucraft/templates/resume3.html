@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Details</title>
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+  
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -167,7 +169,7 @@
             </ul>
         </div>
     </nav>
-    <div id="printarea">
+    <main id="printarea">
         <div class="container">
 
             {% if no_data_message  %}
@@ -273,28 +275,30 @@
             </div>
             {% endif %}
         </div>
-    </div>
+    </main>
 
     <div class="footer">
-        <button onclick="printResume()" style="border-radius: 10px;">Print</button>
+        <button onclick="print()" style="border-radius: 10px;">Print</button>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
-        function printResume() {
-            var element = document.getElementById("printarea");
-
-            html2canvas(element, {
-                onrendered: function (canvas) {
-                    var imgData = canvas.toDataURL('image/png');
-                    var doc = new jsPDF('p', 'mm', 'a4');
-                    doc.addImage(imgData, 'PNG', 10, 10);
-                    doc.save("resume.pdf");
-                }
-            });
+        window.jsPDF = window.jspdf.jsPDF;
+        var docPDF = new jsPDF();
+        function print() {
+          var elementHTML = document.querySelector("#printarea");
+          docPDF.html(elementHTML, {
+            callback: function (docPDF) {
+              docPDF.save("resume.pdf");
+            },
+            x:-25,
+            y:-5,
+            width: 260,
+            windowWidth: 1520,
+          });
         }
-    </script>
+      </script>
 </body>
 
 </html>

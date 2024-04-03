@@ -18,7 +18,7 @@ urlpatterns=[
     path('template7',views.template7,name='template7'),
     path('template8',views.template8,name='template8'),
     path('template9',views.template9,name='template9'),
-    path('template10',views.template10,name='template10'),
+
 
     path('terms',views.terms,name='terms'),
     path('privacy',views.privacy,name='privacy'),

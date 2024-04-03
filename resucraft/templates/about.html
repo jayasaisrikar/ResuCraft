@@ -39,13 +39,14 @@ body::-webkit-scrollbar{
         .card {
             width: 20vw; 
             height: 40vh;
-            
             margin: 8px; 
             margin-left: 8%;
             cursor: pointer;
             border-radius: 10%;
         }
-        
+        .header h1{
+            margin-bottom: 20px;
+        }
         .grid_container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -109,7 +110,7 @@ body::-webkit-scrollbar{
     color: white;
     padding:0px;
     padding-top: 2%;
-    
+    width:100%;
 }
 .foot2{
     color: white;
@@ -135,7 +136,13 @@ body::-webkit-scrollbar{
     text-decoration: none;
 }
 
-  
+.container{
+    position:relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+}
   .navbar{
 box-shadow:0px 2px gray;
 border-radius: 6px;
@@ -182,13 +189,13 @@ border-radius: 6px;
     }
     
     .project-paragraph p {
-        font-size: 28px; /* Adjust the font size for the paragraph */
-        line-height: 1.6; /* Set the line height for better readability */
-        margin-bottom: 15px; /* Add some space below the paragraph */
+        font-size: 28px; 
+        line-height: 1.6; 
+        margin-bottom: 15px; 
     }
     .project-container {
-        max-width: 800px; /* Adjust the maximum width of the container */
-        margin: 0 auto; /* Center the container */
+        max-width: 800px; 
+        margin: 0 auto; 
     }
     .project-container {
         max-width: 800px;
@@ -204,13 +211,25 @@ border-radius: 6px;
         font-weight: bold;
         margin-bottom: 15px;
     }
-    
+    .resume h1{
+        font-weight:bold;
+    }
     .section-description {
         font-size: 18px;
         line-height: 1.6;
         margin-bottom: 15px;
     }
-    
+    .resume_text{
+        padding: 2% 10%;
+        font-size :1.3rem;
+        color: rgb(65, 64, 64);
+    }
+    .headings {
+        margin: 2% 4%;
+    }
+    .resume{
+        color:#4682B4;
+    }
     </style>
 </head>
 <body>
@@ -254,6 +273,7 @@ border-radius: 6px;
       <br>
      <header>
       <h1>Our Team Members </h1>
+      <br>
     </header>
     <div class="grid_container">
         <!-- Member 1 -->
@@ -281,7 +301,7 @@ border-radius: 6px;
                     <h4 style="font-weight: bold;">Jayasai Srikar</h4>
                     <p>I am an ambitious entrepreneur and startup enthusiast, currently pursuing B.Tech in It at JNTUGV</p> 
                     <p>Back End Developer</p>
-                    <p><i class="fa-solid fa-phone" style="color: rgb(0, 255, 0);"></i> 9550617522</p>
+                    <p><i class="fa-solid fa-phone" style="color: rgb(0, 255, 0);"></i> 8919320043</p>
                     <p><i class="fa-solid fa-envelope" style="color: rgb(255, 255, 0);"></i>  bjayasaisrikar2004@gmail.com</p>
                 </div>
             </div>
@@ -309,36 +329,36 @@ border-radius: 6px;
                     <h4 style="font-weight: bold;">Balijireddi bhavani</h4>
                     <p> I'm a Creative Front-End Developer, UI/UX Enthusiast </p> 
                     <p>Front End Developer</p>
-                    <p><i class="fa-solid fa-phone" style="color: rgb(0, 255, 0);"></i>: 9550617522</p>
+                    <p><i class="fa-solid fa-phone" style="color: rgb(0, 255, 0);"></i> 933759788</p>
                     <p><i class="fa-solid fa-envelope" style="color: rgb(255, 255, 0);"></i>  bhavanibalijireddi@gmail.com</p>
                 </div>
             </div>
         </div>
         </div>
-
-        <div class="project-container">
-            <div class="project-section">
-                <h2 class="section-title">About Our Project</h2>
-                <p class="section-description">
-                    Welcome to ResuCraft, our innovative Resume Builder born out of ambitious full-stack development projects. We harnessed the power of Django for the backend, utilized PostgreSQL as our database, and crafted a sleek and responsive user interface with HTML, CSS, JavaScript, and Bootstrap.
-                </p>
-            </div>
-        
-            <div class="project-section">
-                <h2 class="section-title">Our Team's Contributions</h2>
-                <p class="section-description">Eswar took charge of designing the Django framework, handling integration, establishing database connectivity, and conducting project testing. He also authored code for models and views, enabling users to edit and add new information. Srikar collaborated with Eswar, assisting in database management, administration, testing, and contributing to pages like login and signup.
-
-                    Vivek focused on creating an interactive UI for various pages, including the homepage, about page, contact page, and templates page. Finally, Bhavani contributed by designing some of the templates</p>
-            </div>
-        
-            <div class="project-section">
-                <h2 class="section-title">User-Focused Goals</h2>
-                <p class="section-description">
-                    Navigate our website effortlessly—login or sign up. Input new data seamlessly, stored securely in the database. Accessible in user profiles, the data integrates seamlessly into our stylish resume templates. Users can customize their resumes by filling a user-friendly form, editing, or adding new information. Finally, download polished resumes in PDF format, choosing from an array of professionally designed templates.
-                </p>
-            </div>
+        <br>
+        <div class="container-fluid headings resume">
+            <h1>  About Our Project </h1></div>
+            <div class="container resume_text">
+              <p> Welcome to ResuCraft, our innovative Resume Builder born out of ambitious full-stack development projects. We harnessed the power of Django for the backend, utilized PostgreSQL as our database, and crafted a sleek and responsive user interface with HTML, CSS, JavaScript, and Bootstrap.
+            
+              </p>
         </div>
-        
+        <div class="container-fluid headings resume">
+            <h1> Our Team's Contributions</h1></div>
+            <div class="container resume_text">
+              <p>Eswar took charge of designing the Django framework, handling integration, establishing database connectivity, and conducting project testing. He also authored code for models and views, enabling users to edit and add new information. Srikar collaborated with Eswar, assisting in database management, administration, testing, and contributing to pages like login and signup.
+
+                Vivek focused on creating an interactive UI for various pages, including the homepage, about page, contact page, and templates page. Finally, Bhavani contributed by designing some of the templates</p>
+       
+              </p>
+        </div>
+        <div class="container-fluid headings resume">
+            <h1> User-Focused Goals</h1></div>
+            <div class="container resume_text">
+              <p>
+                Effortlessly navigate our website through a seamless login or sign-up process. Input new data securely stored in our database, readily accessible in user profiles, and seamlessly integrated into our stylish resume templates. Customize your resumes with ease using a user-friendly form, allowing for editing or addition of new information. Lastly, download refined resumes in PDF format, selecting from a variety of professionally designed templates.
+            </p> </div>
+        </div>
 <footer class="d-flex flex-column">
     <div class="container-fluid foot1 d-flex justify-content-evenly">
        <div>

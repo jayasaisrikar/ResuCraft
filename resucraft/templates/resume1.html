@@ -1,7 +1,9 @@
 <!Doctype HTML>
 <html>
 <head>
-	<title>resume</title>
+    <title>ResuCraft</title>
+    <link rel="shortcut icon" href="https://i.ibb.co/YpGLhBN/logo2.png">
+  
 	<link rel="stylesheet" type="text/css" href="css/style.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
@@ -14,7 +16,7 @@
 body{
     margin: 0px;
     padding: 0px;
-    background: rgb(213, 206, 206);
+    background: rgb(229, 233, 234);
     height: 150vh;
 }
 .clearfix{clear: both;}
@@ -159,11 +161,11 @@ ul li:before{
 }
 
 button {
-  margin: 20px 650px;
+  margin: 20px ;
+  text-align: center;
   background-color: skyblue;
   color: white;
   font-size: 20px;
-  padding: 20px;
   border-radius: 20px;
 }
 
@@ -261,12 +263,11 @@ button {
 					</ul>
 				</div>
 			</div>
+            
 		</div>
+        <button onclick="print()" style="color: rgb(57, 125, 252);font-weight:bold;">print</button>  
 		<div class="clearfix"></div>
-	</div>
-
-    <button onclick="print()">print</button>  
-    <script>
+	</div>    <script>
           window.jsPDF = window.jspdf.jsPDF;
           var docPDF = new jsPDF();
           function print() {
